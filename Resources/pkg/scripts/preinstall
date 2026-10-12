@@ -1,0 +1,8 @@
+#!/bin/bash
+# Installer preinstall: stop a running engine so the app bundle can be replaced cleanly.
+# The agent is registered by the app (SMAppService); launchd restarts it from the new bundle.
+CONSOLE_USER="$(stat -f %Su /dev/console 2>/dev/null || true)"
+if [[ -n "$CONSOLE_USER" && "$CONSOLE_USER" != "root" && "$CONSOLE_USER" != "loginwindow" ]]; then
+    /usr/bin/pkill -x SoundRouterEngine 2>/dev/null || true
+fi
+exit 0

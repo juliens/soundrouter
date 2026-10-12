@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- productbuild distribution template; __VERSION__ is filled by Scripts/make-pkg.sh. -->
+<installer-gui-script minSpecVersion="2">
+    <title>SoundRouter __VERSION__</title>
+    <organization>io.soundrouter</organization>
+    <domains enable_localSystem="true" enable_anywhere="false" enable_currentUserHome="false"/>
+    <options customize="never" require-scripts="true" rootVolumeOnly="true" hostArchitectures="arm64,x86_64"/>
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="14.2"/>
+        </allowed-os-versions>
+    </volume-check>
+    <choices-outline>
+        <line choice="default">
+            <line choice="io.soundrouter.pkg.app"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="io.soundrouter.pkg.app" visible="false">
+        <pkg-ref id="io.soundrouter.pkg.app"/>
+    </choice>
+    <pkg-ref id="io.soundrouter.pkg.app" version="__VERSION__" onConclusion="none">SoundRouter-app.pkg</pkg-ref>
+</installer-gui-script>

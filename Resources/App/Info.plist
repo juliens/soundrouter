@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>SoundRouter</string>
+	<key>CFBundleExecutable</key>
+	<string>SoundRouter</string>
+	<key>CFBundleIdentifier</key>
+	<string>io.soundrouter.app</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SoundRouter</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>__VERSION__</string>
+	<key>CFBundleVersion</key>
+	<string>__BUILD__</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.music</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.2</string>
+	<!-- TCC attributes the engine's taps/inputs to this app (AssociatedBundleIdentifiers),
+	     so the usage descriptions must live here too, not only in the engine. -->
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>SoundRouter captures the audio of the applications you choose and routes it to your virtual audio devices. Audio never leaves your Mac.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>SoundRouter reads the microphones and audio inputs you add as sources and mixes them into your virtual audio devices. Audio never leaves your Mac.</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSSupportsAutomaticTermination</key>
+	<false/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2026 SoundRouter contributors. MIT License.</string>
+</dict>
+</plist>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sparkle appcast template. See README "Updates (Sparkle)".
+     Generate entries with Sparkle's `generate_appcast` (it fills sparkle:edSignature and length). -->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>SoundRouter</title>
+    <link>https://example.invalid/soundrouter/appcast.xml</link>
+    <description>SoundRouter updates</description>
+    <language>en</language>
+    <item>
+      <title>Version 0.1.0</title>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 +0000</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.2</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Initial release.</p><p>Note: driver updates require an administrator password (the app reinstalls the HAL driver and restarts coreaudiod).</p>]]></description>
+      <enclosure url="https://example.invalid/soundrouter/SoundRouter-0.1.0.dmg"
+                 sparkle:edSignature="__ED_SIGNATURE__"
+                 length="0"
+                 type="application/octet-stream"/>
+    </item>
+  </channel>
+</rss>

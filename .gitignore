@@ -1,0 +1,29 @@
+# SwiftPM / Xcode
+.build/
+.swiftpm/
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+Package.resolved.bak
+
+# Build products (app, driver, pkg, dmg, srctl, integration tools)
+/build/
+Driver/build/
+*.o
+*.d
+*.dSYM/
+
+# Notarization / signing secrets
+*.p12
+*.p8
+*.cer
+*.provisionprofile
+.env*
+sparkle_private_key*
+
+# Local Claude settings
+.claude/
+
+# macOS
+.DS_Store
