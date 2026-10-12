@@ -25,6 +25,25 @@ No audio leaves the Mac, and there is no telemetry.
 - Xcode 16 or later, with its command line tools (`xcode-select --install`)
 - An administrator account (the audio driver is installed system-wide)
 
+### Download (no compilation needed)
+
+Download the latest release from the
+[Releases page](https://github.com/juliens/soundrouter/releases/latest):
+
+- **`SoundRouter-<version>.pkg`** (recommended): installs the app in `/Applications` **and** the
+  audio driver in one go (asks for your password; audio stops for about a second).
+- **`SoundRouter-<version>.zip`**: the app alone. Unzip it, move `SoundRouter.app` to
+  `/Applications` and launch it; the setup assistant installs the driver (asks for your password).
+
+Releases are not notarized by Apple yet, so macOS blocks them on first open
+("Apple could not verify…"). To allow it:
+
+1. Try to open the `.pkg` (or the app) once, and dismiss the warning.
+2. Open *System Settings › Privacy & Security*, scroll down and click **Open Anyway**, then confirm.
+
+Alternatively, from Terminal: `xattr -dr com.apple.quarantine ~/Downloads/SoundRouter-*.pkg`
+(or `/Applications/SoundRouter.app` for the zip).
+
 ### Build and install from source
 
 ```sh

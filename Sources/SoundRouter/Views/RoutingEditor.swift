@@ -42,6 +42,9 @@ final class RoutingModel {
     /// First port of a click-then-click connection.
     var pendingPort: PortID?
     @ObservationIgnored var connect: ((PortID, PortID) -> Void)?
+    /// Refreshed on every device change: removing a monitor cable rewrites the monitor's
+    /// route list, so it must use the current device, not the one captured at onAppear.
+    @ObservationIgnored var removeCable: ((CableID) -> Void)?
     @ObservationIgnored var requestFocus: (() -> Void)?
 
     func port(at point: CGPoint) -> PortID? {
@@ -128,6 +131,7 @@ struct RoutingEditor: View {
         .onExitCommand { model.selectedCable = nil; model.pendingPort = nil }
         .onAppear {
             model.connect = { a, b in routing.connect(a, b) }
+            model.removeCable = { c in routing.remove(c) }
             model.requestFocus = { focused = true }
             installKeyMonitor()
         }
@@ -137,6 +141,7 @@ struct RoutingEditor: View {
         }
         .onChange(of: device) { _, _ in
             model.connect = { a, b in routing.connect(a, b) }
+            model.removeCable = { c in routing.remove(c) }
         }
     }
 
@@ -153,8 +158,9 @@ struct RoutingEditor: View {
             if event.window?.firstResponder is NSText { return event }
             switch event.keyCode {
             case 51, 117: // Backspace, forward Delete
-                guard model.selectedCable != nil else { return event }
-                deleteSelectedCable()
+                guard let cable = model.selectedCable else { return event }
+                model.removeCable?(cable)
+                model.selectedCable = nil
                 return nil
             case 53: // Escape
                 guard model.selectedCable != nil || model.pendingPort != nil else { return event }

@@ -43,6 +43,9 @@ trap 'rm -rf "$TMP"' EXIT
 /usr/bin/ditto "$SRC" "$TMP"
 chown -R root:wheel "$TMP"
 chmod -R go-w "$TMP"
+# A driver from a downloaded (non-notarized) release carries the quarantine flag; the admin
+# is installing it explicitly, and coreaudiod must not refuse it for that reason.
+/usr/bin/xattr -dr com.apple.quarantine "$TMP" 2>/dev/null || true
 rm -rf "$DEST"
 mv "$TMP" "$DEST"
 trap - EXIT
